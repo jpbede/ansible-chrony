@@ -14,7 +14,9 @@ pool {{ chrony_pool }}
 {% endif %}
 
 {% if chrony_server %}
-server {{ chrony_server }}
+{% for block in chrony_server %}
+server {{ block }}
+{% endfor %}
 {% endif %}
 
 keyfile {{ chrony_keyfile }}
